@@ -6,9 +6,10 @@
 
 a{
   text-decoration: none;
-  color:#fff;
+  color:#111;
+  transition: .3s;
 }
 
 a:hover{
-  color:#eee;
+  color:#333;
 }

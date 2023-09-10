@@ -1,9 +1,60 @@
+//Components
+import AnimeCard from "../components/AnimeCard"
+
+import { Swiper, SwiperSlide } from 'swiper/react';
+import Spinner from 'react-spinner-material';
+
+
+//hooks
+import {UseFetch} from "../hooks/Usefetch"
+import { useEffect,useState } from "react";
+
 import "./Home.css"
 
+
 const Home = () => {
+  const URL = "https://api.jikan.moe/v4/anime"
+  const {animes, loading} = UseFetch(URL)
+
+  const [slidesPerView, setslidePerView] = useState(4)
+
+
+  useEffect(() =>{
+    function handleSize() {
+      if(window.innerWidth < 750){
+          setslidePerView(2)
+      }else{
+        setslidePerView(4)
+      }                                                                                           
+    }
+    handleSize()
+    window.addEventListener("resize", handleSize)
+
+    return () => {
+      window.removeEventListener("resize", handleSize)
+    }
+  },[])
+
+
   return (
-    <div>
-      
+    <div className="container">
+        <Swiper
+          isActive
+          className="slide"
+          slidesPerView={slidesPerView}
+          navigation
+        >
+          {animes.map((item) => (
+            <SwiperSlide key={item.mal_id}>
+              <img className="slider-item" src={item.images.jpg.large_image_url} alt={item.title}/>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+        <h2 className="title">Melhores animes:</h2>
+        <div className="animes-container">
+            {loading && <Spinner size={120} spinnerColor={"#333"} spinnerWidth={5} visible={true} />}
+            {animes && animes.map((anime) => <AnimeCard key={anime.mal_id} anime={anime}/>)}  
+        </div>
     </div>
   )
 }
