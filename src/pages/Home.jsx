@@ -13,7 +13,7 @@ import "./Home.css"
 
 
 const Home = () => {
-  const URL = "https://api.jikan.moe/v4/anime"
+  const URL = "https://api.jikan.moe/v4/top/anime?filter=bypopularity"
   const {animes, loading} = UseFetch(URL)
 
   const [slidesPerView, setslidePerView] = useState(4)
@@ -39,7 +39,7 @@ const Home = () => {
   return (
     <div className="container">
         <Swiper
-          isActive
+          
           className="slide"
           slidesPerView={slidesPerView}
           navigation
@@ -52,7 +52,7 @@ const Home = () => {
         </Swiper>
         <h2 className="title">Melhores animes:</h2>
         <div className="animes-container">
-            {loading && <Spinner size={120} spinnerColor={"#333"} spinnerWidth={5} visible={true} />}
+            {loading && <Spinner size={120}  visible={true} />}
             {animes && animes.map((anime) => <AnimeCard key={anime.mal_id} anime={anime}/>)}  
         </div>
     </div>

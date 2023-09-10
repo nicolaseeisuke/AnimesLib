@@ -16,6 +16,7 @@ import Details from './pages/Details.jsx'
 
 //Routes
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import Search from './pages/Search.jsx'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
@@ -24,6 +25,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         <Route element={<App />}>
           <Route path="/" element={<Home/>}/>
           <Route path="/anime/:id" element={<Details/>}/>
+          <Route path="/search" element={<Search/>} />
         </Route>
       </Routes>
     </BrowserRouter>

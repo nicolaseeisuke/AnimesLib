@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import { Link, useNavigate} from 'react-router-dom'
 import { BiSearchAlt2 } from "react-icons/bi";
 
 //hooks 
@@ -8,13 +8,17 @@ import './Navbar.css'
 
 const NavBar = () => {
 
-  const [anime, setAnime] = useState("")
+  const [search, setSearch] = useState("");
+  const navigate = useNavigate();
 
   const handleAnime = (e) => {
     e.preventDefault()
+    if(!search) return ;
     
-    console.log(anime)
-    setAnime("")
+    navigate(`/search?q=${search}`, {replace:true})
+
+    console.log(search)
+    setSearch("")
   }
   
   return (
@@ -28,8 +32,8 @@ const NavBar = () => {
             <input 
             type="text" 
             placeholder='Busque um anime' 
-            onChange={(e) => setAnime(e.target.value)}
-            value={anime}
+            onChange={(e) => setSearch(e.target.value)}
+            value={search}
             />
 
             <button type='submit'>
