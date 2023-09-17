@@ -1,7 +1,6 @@
 //Components
 import AnimeCard from "../components/AnimeCard"
 import Spinner from "../components/Spinner"
-import Slide from "../components/Slide";
 
 //hooks
 import {UseFetch} from "../hooks/Usefetch"
@@ -50,7 +49,7 @@ const Home = () => {
         </Swiper>
         <h2 className="title">Popular animes:</h2>
         <div className="animes-container">
-            {loading && <Spinner size={120}  visible={true} />}
+            {loading && <Spinner/>}
             {animes && animes.map((anime) => <AnimeCard key={anime.mal_id} anime={anime}/>)}  
         </div>
     </div>

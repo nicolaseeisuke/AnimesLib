@@ -19,7 +19,7 @@ const Search = () => {
       <h2 className="title">Results for: {query}</h2>
       <div className="animes-container">
         {loading && <Spinner/>}
-        {animes && animes.map((anime) => <AnimeCard key={anime.mal_id} anime={anime}/>)}
+        {animes && animes.map((anime) => <AnimeCard key={anime.mal_id} anime={anime} />)}
       </div>
     </div>
   )
