@@ -1,16 +1,15 @@
 //Components
 import AnimeCard from "../components/AnimeCard"
-
-import { Swiper, SwiperSlide } from 'swiper/react';
-import Spinner from 'react-spinner-material';
-
+import Spinner from "../components/Spinner"
+import Slide from "../components/Slide";
 
 //hooks
 import {UseFetch} from "../hooks/Usefetch"
 import { useEffect,useState } from "react";
+import { Swiper, SwiperSlide } from 'swiper/react';
 
+//css
 import "./Home.css"
-
 
 const Home = () => {
   const URL = "https://api.jikan.moe/v4/top/anime?filter=bypopularity"
@@ -38,19 +37,18 @@ const Home = () => {
 
   return (
     <div className="container">
-        <Swiper
-          
+       <Swiper
           className="slide"
           slidesPerView={slidesPerView}
           navigation
         >
-          {animes.map((item) => (
+          {animes && animes.map((item) => (
             <SwiperSlide key={item.mal_id}>
               <img className="slider-item" src={item.images.jpg.large_image_url} alt={item.title}/>
             </SwiperSlide>
           ))}
         </Swiper>
-        <h2 className="title">Melhores animes:</h2>
+        <h2 className="title">Popular animes:</h2>
         <div className="animes-container">
             {loading && <Spinner size={120}  visible={true} />}
             {animes && animes.map((anime) => <AnimeCard key={anime.mal_id} anime={anime}/>)}  

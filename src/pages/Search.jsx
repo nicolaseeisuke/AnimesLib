@@ -2,8 +2,9 @@ import { useSearchParams } from "react-router-dom"
 
 import { UseFetch } from "../hooks/Usefetch"
 
-import "./home.css"
+import "./Home.css"
 import AnimeCard from "../components/AnimeCard"
+import Spinner from "../components/Spinner"
 
 const Search = () => {
   const [searchParams] = useSearchParams()
@@ -15,9 +16,9 @@ const Search = () => {
 
   return (
     <div>
-      <h2 className="title">Resultados para: {query}</h2>
+      <h2 className="title">Results for: {query}</h2>
       <div className="animes-container">
-        {loading && <p>Carregando...</p>}
+        {loading && <Spinner/>}
         {animes && animes.map((anime) => <AnimeCard key={anime.mal_id} anime={anime}/>)}
       </div>
     </div>

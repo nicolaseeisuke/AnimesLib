@@ -1,0 +1,68 @@
+@charset "UFT-8";
+
+h1{
+  text-align: center;
+  margin-top: 3rem;
+}
+
+.details{
+  background-color: #ededed;
+  border-radius: 20px;
+  box-shadow: 5px 5px 4px rgb(69, 68, 68);
+  max-width: 900px;
+  padding: 4rem;
+  margin: 1rem auto;
+}
+
+.detail{
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+}
+
+.animeDetails{
+  display: flex;
+  flex-direction: column;
+  letter-spacing: 1px;
+  font-family: 'Inter', sans-serif;
+  font-size: 1.2em;
+}
+
+.animeDetails p{
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.description{
+  margin-top: 1rem;
+  font-size: 1.2em;
+  font-weight: 700;
+
+}
+.description span,
+.animeDetails span{
+  font-weight: 400;
+}
+
+.description button{
+  background-color: rgba(185,8,10);
+  cursor: pointer;
+  color: #fff;
+}
+
+.trailer{
+  background-color: #000;
+  margin-bottom: 30px;
+  width: 950px;
+  padding: 10px;
+  padding-bottom: 35%;
+  margin: 0 auto;
+  position: relative;
+}
+
+.trailer > iframe{
+  position: absolute;
+  top: 5%;
+  left: 5%;
+  width:90%;
+  height: 90%;
+}

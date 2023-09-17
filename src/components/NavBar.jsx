@@ -15,7 +15,7 @@ const NavBar = () => {
     e.preventDefault()
     if(!search) return ;
     
-    navigate(`/search?q=${search}`, {replace:true})
+    navigate(`/search?q=${search}`)
 
     console.log(search)
     setSearch("")
@@ -31,7 +31,7 @@ const NavBar = () => {
         <form onSubmit={handleAnime}>
             <input 
             type="text" 
-            placeholder='Busque um anime' 
+            placeholder='Search anime' 
             onChange={(e) => setSearch(e.target.value)}
             value={search}
             />

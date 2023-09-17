@@ -1,6 +1,7 @@
 body{
   background-color: #ccc;
   color: #111;
+  font-family: 'Alegreya Sans SC', sans-serif;
 }
 
 .slide{
@@ -35,4 +36,5 @@ body{
   max-width: 1200px;
   margin:0 auto;
   align-items: center;
+
 }
