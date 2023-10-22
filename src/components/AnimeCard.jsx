@@ -8,7 +8,7 @@ const AnimeCard = ({anime, showLink = true}) => {
     <div className="anime-card">
       <img src={anime.images.jpg.image_url} alt={anime.title} />
       <h2>{anime.title}</h2>
-      {showLink && <Link to={`anime/${anime.title}/${anime.mal_id}`}>Details</Link>}
+      {showLink && <Link to={`anime/${anime.mal_id}`}>Details</Link>}
     </div>
   )
 }
